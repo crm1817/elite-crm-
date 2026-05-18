@@ -424,9 +424,11 @@ onSnapshot(DEALS_DOC, (snap) => {
   if(snap.exists()){
     if(ignoreNextDeals){ignoreNextDeals=false;return;}
     dealsDB = snap.data().groups||[];
-    renderDeals();
-    setSynced();
-  } else { setSynced(); }
+  } else {
+    dealsDB = [];
+  }
+  renderDeals();
+  setSynced();
 }, ()=>setSyncErr());
 
 function saveDeals(){
