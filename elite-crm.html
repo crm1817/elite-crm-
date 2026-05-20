@@ -131,6 +131,75 @@ tbody tr:hover .delbtn{color:var(--t3)}
 .cxsep{height:1px;background:var(--b0);margin:2px 0}
 .cxi.danger{color:var(--rd)}
 .cxi.danger:hover{background:var(--rd-bg)}
+
+
+/* ACTIVITY LOG */
+.activity-wrap{max-width:680px;margin:0 auto;padding:8px 0;}
+.activity-empty{text-align:center;color:var(--t3);font-size:13px;padding:60px 0;}
+.activity-item{display:flex;align-items:flex-start;gap:12px;padding:10px 14px;background:var(--s0);border:1px solid var(--b0);border-radius:8px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.04);}
+.activity-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;margin-top:1px;}
+.activity-icon.add{background:var(--gr-bg);}
+.activity-icon.del{background:var(--rd-bg);}
+.activity-icon.move{background:var(--cy-bg);}
+.activity-body{flex:1;}
+.activity-action{font-size:12px;font-weight:600;color:var(--t0);}
+.activity-action .item-name{color:var(--acc);}
+.activity-action .group-name{color:var(--t1);}
+.activity-time{font-size:11px;color:var(--t3);margin-top:2px;}
+.activity-tab{color:var(--t2);font-size:11px;background:var(--s2);border:1px solid var(--b0);border-radius:4px;padding:1px 6px;margin-left:4px;}
+.activity-clear{display:block;margin:16px auto 0;padding:7px 18px;border:1px solid var(--b1);border-radius:6px;background:var(--s0);color:var(--t2);font-size:12px;cursor:pointer;font-family:inherit;}
+.activity-clear:hover{background:var(--rd-bg);color:var(--rd);border-color:var(--rd-b);}
+
+/* EDITABLE GROUP NAME */
+.gname-edit{font-size:12px;font-weight:700;color:var(--t0);background:transparent;border:none;border-bottom:1.5px solid var(--acc);outline:none;padding:0 2px;width:120px;font-family:inherit;}
+.gname-wrap{display:inline-flex;align-items:center;gap:4px;cursor:default;}
+.gname-pencil{font-size:10px;color:var(--t3);cursor:pointer;opacity:0;transition:opacity .15s;}
+.ghdr:hover .gname-pencil{opacity:1;}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;right:24px;padding:10px 16px;border-radius:8px;font-size:12px;font-weight:600;color:#fff;box-shadow:0 4px 16px rgba(0,0,0,.18);z-index:9999;opacity:0;transform:translateY(8px);transition:all .22s;pointer-events:none;max-width:300px;}
+.toast.show{opacity:1;transform:translateY(0);}
+.toast.green{background:#00875c;}
+.toast.red{background:#e44258;}
+.toast.blue{background:#0073ea;}
+/* USERNAME SCREEN */
+#nameScreen{position:fixed;inset:0;background:linear-gradient(135deg,#1d2b4f,#0073ea);display:flex;align-items:center;justify-content:center;z-index:9998;}
+#nameBox{background:#fff;border-radius:16px;padding:36px 32px;width:100%;max-width:360px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3);}
+#nameBox h2{font-size:20px;font-weight:700;color:#111827;margin-bottom:6px;}
+#nameBox p{font-size:13px;color:#6b7280;margin-bottom:24px;}
+#nameInput{width:100%;padding:12px 14px;border:1.5px solid #d1d5db;border-radius:8px;font-size:14px;outline:none;margin-bottom:12px;text-align:center;}
+#nameInput:focus{border-color:#0073ea;box-shadow:0 0 0 3px #e8f0fe;}
+#nameBtn{width:100%;padding:12px;background:#0073ea;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;}
+#nameBtn:hover{background:#0060c9;}
+#nameErr{color:#e44258;font-size:12px;margin-top:8px;min-height:18px;}
+
+
+/* MOVE ROW MODAL */
+.move-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:1000;display:flex;align-items:center;justify-content:center;}
+.move-modal{background:#fff;border-radius:12px;padding:28px 24px;width:340px;box-shadow:0 20px 60px rgba(0,0,0,.2);}
+.move-modal h3{font-size:15px;font-weight:700;color:var(--t0);margin-bottom:6px;}
+.move-modal p{font-size:12px;color:var(--t2);margin-bottom:18px;}
+.move-modal label{font-size:11px;font-weight:600;color:var(--t2);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.4px;}
+.move-modal input[type=date]{width:100%;padding:8px 12px;border:1px solid var(--b1);border-radius:6px;font-size:13px;font-family:inherit;color:var(--t0);outline:none;margin-bottom:6px;}
+.move-modal input[type=date]:focus{border-color:var(--acc);box-shadow:0 0 0 2px var(--acc-bg);}
+.move-modal-note{font-size:11px;color:var(--t3);margin-bottom:18px;}
+.move-modal-btns{display:flex;gap:8px;justify-content:flex-end;}
+.move-modal-btns button{padding:8px 18px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;border:1px solid var(--b1);}
+.move-modal-btns .btn-cancel{background:var(--s0);color:var(--t1);}
+.move-modal-btns .btn-cancel:hover{background:var(--s2);}
+.move-modal-btns .btn-move{background:var(--acc);color:#fff;border-color:var(--acc);}
+.move-modal-btns .btn-move:hover{background:var(--acc2);}
+
+/* SEARCH BAR */
+.search-bar{display:flex;align-items:center;gap:8px;padding:8px 0 12px 0;}
+.search-bar input{padding:7px 12px 7px 32px;border:1px solid var(--b1);border-radius:6px;font-size:12px;font-family:inherit;color:var(--t0);background:var(--s0);outline:none;width:260px;transition:border .15s,box-shadow .15s;}
+.search-bar input:focus{border-color:var(--acc);box-shadow:0 0 0 2px var(--acc-bg);}
+.search-wrap{position:relative;}
+.search-wrap svg{position:absolute;left:9px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--t3);}
+.search-clear{background:none;border:none;cursor:pointer;font-size:13px;color:var(--t3);padding:2px 6px;border-radius:4px;}
+.search-clear:hover{color:var(--rd);}
+.search-highlight{background:#fff3b0 !important;}
+
 </style>
 </head>
 <body>
@@ -150,11 +219,38 @@ tbody tr:hover .delbtn{color:var(--t3)}
   if(sessionStorage.getItem(KEY)==='ok'){document.getElementById('lockScreen').style.display='none';return;}
   window.checkLock=function(){
     const v=document.getElementById('lockPass').value;
-    if(v===PASS){sessionStorage.setItem(KEY,'ok');document.getElementById('lockScreen').style.display='none';}
+    if(v===PASS){
+      sessionStorage.setItem(KEY,'ok');
+      document.getElementById('lockScreen').style.display='none';
+      // Show name screen if no name saved
+      if(!sessionStorage.getItem('crm_user_name')){
+        document.getElementById('nameScreen').style.display='flex';
+      }
+    }
     else{document.getElementById('lockErr').textContent='Wrong password, try again';document.getElementById('lockPass').value='';}
+  }
+  window.submitName=function(){
+    const v=document.getElementById('nameInput').value.trim();
+    if(!v){document.getElementById('nameErr').textContent='Please enter your name';return;}
+    sessionStorage.setItem('crm_user_name',v);
+    document.getElementById('nameScreen').style.display='none';
+  }
+  // If already authenticated but no name yet
+  if(sessionStorage.getItem(KEY)==='ok' && !sessionStorage.getItem('crm_user_name')){
+    document.getElementById('nameScreen').style.display='flex';
   }
 })();
 </script>
+<div id="toast" class="toast"></div>
+<div id="nameScreen" style="display:none">
+  <div id="nameBox">
+    <h2>👋 Welcome!</h2>
+    <p>Enter your name to continue</p>
+    <input id="nameInput" type="text" placeholder="Your name" onkeydown="if(event.key==='Enter')submitName()"/>
+    <button id="nameBtn" onclick="submitName()">Continue →</button>
+    <div id="nameErr"></div>
+  </div>
+</div>
 <div id="app">
   <div class="header">
     <div class="wordmark">Sales<span>CRM</span></div>
@@ -163,26 +259,44 @@ tbody tr:hover .delbtn{color:var(--t3)}
     <div class="spacer"></div>
     <div class="kpi-bar" id="kpi"></div>
     <div class="hdiv"></div>
-    <div class="sync-dot loading" id="syncDot" title="מתחבר..."></div>
+    <div class="sync-dot loading" id="syncDot" title="Connecting..."></div>
     <button class="hbtn" id="exportBtn" onclick="doExport()">Export CSV</button>
   </div>
   <div class="tabs">
     <div class="tab active" id="tab-crm" onclick="switchTab('crm')">📋 CRM</div>
     <div class="tab" id="tab-deals" onclick="switchTab('deals')">💰 Affiliate Deals</div>
+    <div class="tab" id="tab-activity" onclick="switchTab('activity')">🕐 Activity Log</div>
   </div>
   <div class="body">
     <div class="tab-content active" id="content-crm">
+      <div class="search-bar">
+        <div class="search-wrap">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="crm-search" placeholder="Search..." oninput="crmSearch(this.value)" onkeydown="if(event.key==='Escape'){this.value='';crmSearch('')}"/>
+        </div>
+        <button class="search-clear" onclick="document.getElementById('crm-search').value='';crmSearch('')">✕</button>
+      </div>
       <div id="root-crm"></div>
     </div>
     <div class="tab-content" id="content-deals">
+      <div class="search-bar">
+        <div class="search-wrap">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="deals-search" placeholder="Search..." oninput="dealsSearch(this.value)" onkeydown="if(event.key==='Escape'){this.value='';dealsSearch('')}"/>
+        </div>
+        <button class="search-clear" onclick="document.getElementById('deals-search').value='';dealsSearch('')">✕</button>
+      </div>
       <div id="root-deals"></div>
+    </div>
+      <div class="tab-content" id="content-activity">
+      <div id="root-activity"></div>
     </div>
   </div>
 </div>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { getFirestore, doc, setDoc, updateDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC6UOaxO5LZAYh0pIEDHflgyhAcwqiLdW8",
@@ -196,10 +310,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db_fire = getFirestore(app);
 const CRM_DOC = doc(db_fire, "crm", "main");
+const ACTIVITY_DOC = doc(db_fire, "crm", "activity");
 const DEALS_DOC = doc(db_fire, "crm", "deals");
 
 const syncDot = document.getElementById('syncDot');
 let saveTimeout = null;
+let saveTimeoutDeals = null;
 let ignoreNextCRM = false;
 let ignoreNextDeals = false;
 let activeTab = 'crm';
@@ -211,7 +327,7 @@ window.switchTab = function(tab) {
   document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
   document.getElementById('tab-'+tab).classList.add('active');
   document.getElementById('content-'+tab).classList.add('active');
-  if(tab==='crm'){updateCRMKPI();}else{updateDealsKPI();}
+  if(tab==='crm'){updateCRMKPI();}else if(tab==='deals'){updateDealsKPI();}else if(tab==='activity'){renderActivity();}
 }
 
 window.doExport = function(){
@@ -231,7 +347,27 @@ let crmDB = [];
 onSnapshot(CRM_DOC, (snap) => {
   if(snap.exists()){
     if(ignoreNextCRM){ignoreNextCRM=false;return;}
-    crmDB = snap.data().groups||[];
+    const incoming = snap.data().groups||[];
+    // Merge: keep focused cell value, update everything else
+    const focused = document.activeElement;
+    incoming.forEach((g,gi)=>{
+      if(!crmDB[gi]) return;
+      g.rows.forEach((r,ri)=>{
+        if(!crmDB[gi]||!crmDB[gi].rows[ri]) return;
+        Object.keys(r).forEach(f=>{
+          const el = document.getElementById('cgi'+gi+'_'+ri) || 
+                     document.querySelector('#ctb'+gi+' tr:nth-child('+(ri+1)+') input:focus');
+          // Only skip the exact focused field
+          if(focused && focused.dataset && focused.dataset.gi==gi && focused.dataset.ri==ri && focused.dataset.field==f) return;
+          crmDB[gi].rows[ri][f] = r[f];
+        });
+      });
+      crmDB[gi].open = g.open;
+      crmDB[gi].color = g.color;
+      crmDB[gi].name = g.name;
+    });
+    // If groups count changed, do full sync
+    if(incoming.length !== crmDB.length){ crmDB = incoming; }
     renderCRM();
     setSynced();
   } else { setSynced(); }
@@ -244,6 +380,19 @@ function saveCRM(){
     try{ ignoreNextCRM=true; await setDoc(CRM_DOC,{groups:crmDB}); setSynced(); }
     catch(e){ setSyncErr(); }
   },600);
+}
+function saveCRMField(gi,ri,field,value){
+  // Save only the specific field that changed — prevents overwriting other users' edits
+  if(saveTimeout) clearTimeout(saveTimeout);
+  setSyncing();
+  saveTimeout = setTimeout(async()=>{
+    try{
+      const fresh = JSON.parse(JSON.stringify(crmDB));
+      ignoreNextCRM=true;
+      await setDoc(CRM_DOC,{groups:fresh});
+      setSynced();
+    }catch(e){ setSyncErr(); }
+  },800);
 }
 
 const GEOS_CRM=[
@@ -297,16 +446,16 @@ function updateCRMKPI(){
 function renderCRM(){
   const root=document.getElementById('root-crm');root.innerHTML='';
   const bar=document.createElement('div');bar.className='new-group-bar';
-  bar.innerHTML=`<label>+ קבוצה חדשה:</label>
+  bar.innerHTML=`<label>+ New group:</label>
     <input type="date" id="new-date" value="${dateInputVal()}"/>
     <div class="gbarcell">
-      <input type="text" id="new-label" placeholder="מדינה / שם קבוצה" autocomplete="off"
+      <input type="text" id="new-label" placeholder="Country / Group name" autocomplete="off"
         oninput="crmBarGeoInput(this.value)"
         onfocus="crmBarGeoInput(this.value)"
         onblur="setTimeout(()=>{const d=document.getElementById('crm-bar-dd');if(d)d.style.display='none'},160)"/>
       <div class="gbardd" id="crm-bar-dd"></div>
     </div>
-    <button class="hbtn acc" onclick="crmAddGroupFromBar()">צור קבוצה</button>`;
+    <button class="hbtn acc" onclick="crmAddGroupFromBar()">Create group</button>`;
   root.appendChild(bar);
   crmDB.forEach((_,gi)=>{const d=document.createElement('div');d.className='group';d.id='cg'+gi;root.appendChild(d);crmRG(gi)});
   updateCRMKPI();
@@ -315,12 +464,15 @@ function renderCRM(){
 function crmRG(gi){
   const g=crmDB[gi];const el=document.getElementById('cg'+gi);if(!el)return;
   const caps=g.rows.reduce((a,r)=>a+(parseInt(r.caps)||0),0);
-  el.className='group'+(g.open?'':' closed');
+  el.className='group'+(g.open||crmSearchQuery?'':' closed');
   const today=isToday(g.name);
   let h=`<div class="ghdr" onclick="crmToggle(${gi})">
     <span class="gchev ${g.open?'open':''}">▶</span>
     <span class="gstripe" style="background:${g.color}"></span>
-    <span class="gname">${xe(g.name)}</span>
+    <span class="gname-wrap" onclick="event.stopPropagation()">
+      <span class="gname" id="gname-display-${gi}" onclick="crmEditGroupName(${gi})" title="Click to edit date" style="cursor:pointer">${xe(g.name)}</span>
+      <span class="gname-pencil" onclick="crmEditGroupName(${gi})">✏️</span>
+    </span>
     ${today?'<span class="today-badge">Today</span>':''}
     <span class="gpill">${g.rows.length}</span>
     ${caps?`<span class="gcaps">caps <b>${caps}</b></span>`:''}
@@ -332,9 +484,9 @@ function crmRG(gi){
   if(g.open){
     h+=`<div class="twrap"><table>
       <colgroup><col class="c0"><col class="c1"><col class="c2"><col class="c3"><col class="c4"><col class="c5"><col class="c6"><col class="c7"><col class="c8"><col class="c9"><col class="c10"><col class="c11"><col class="c12"></colgroup>
-      <thead><tr><th>Item</th><th>Geos</th><th>Caps</th><th>Source</th><th>Hrs</th><th>Fit</th><th>Deal</th><th>Status</th><th>Requests</th><th>Priority</th><th>Ppl</th><th>Approve</th><th></th></tr></thead>
+      <thead><tr><th onclick="crmSort(${gi},'item')" style="cursor:pointer">Item ${crmSortIndicator(gi,'item')}</th><th onclick="crmSort(${gi},'geos')" style="cursor:pointer">Geos ${crmSortIndicator(gi,'geos')}</th><th onclick="crmSort(${gi},'caps')" style="cursor:pointer">Caps ${crmSortIndicator(gi,'caps')}</th><th onclick="crmSort(${gi},'src')" style="cursor:pointer">Source ${crmSortIndicator(gi,'src')}</th><th onclick="crmSort(${gi},'wh')" style="cursor:pointer">Hrs ${crmSortIndicator(gi,'wh')}</th><th onclick="crmSort(${gi},'fit')" style="cursor:pointer">Fit ${crmSortIndicator(gi,'fit')}</th><th onclick="crmSort(${gi},'deal')" style="cursor:pointer">Deal ${crmSortIndicator(gi,'deal')}</th><th onclick="crmSort(${gi},'status')" style="cursor:pointer">Status ${crmSortIndicator(gi,'status')}</th><th onclick="crmSort(${gi},'req')" style="cursor:pointer">Requests ${crmSortIndicator(gi,'req')}</th><th onclick="crmSort(${gi},'pri')" style="cursor:pointer">Priority ${crmSortIndicator(gi,'pri')}</th><th>Ppl</th><th onclick="crmSort(${gi},'appr')" style="cursor:pointer">Approve ${crmSortIndicator(gi,'appr')}</th><th></th></tr></thead>
       <tbody id="ctb${gi}">`;
-    g.rows.forEach((r,ri)=>{h+=crmRowH(gi,ri,r)});
+    g.rows.forEach((r,ri)=>{if(!crmMatchesSearch(g,r))return;h+=crmRowH(gi,ri,r)});
     h+=`</tbody><tfoot><tr class="footrow"><td>Total</td><td></td><td class="footval">${caps||''}</td><td colspan="10"></td></tr></tfoot></table></div>
     <div class="addrow" onclick="crmAddRow(${gi})"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>Add item</div>`;
   }
@@ -374,15 +526,16 @@ window.crmAddGroupFromBar=function(){
   if(!dateEl||!dateEl.value)return;
   const label=labelEl&&labelEl.value.trim();
   const name=label?label+' — '+formatDateLabel(dateEl.value):formatDateLabel(dateEl.value);
-  if(crmDB.find(g=>g.name===name)){alert('קבוצה עם שם זה כבר קיימת');return}
+  if(crmDB.find(g=>g.name===name)){alert('A group with this name already exists');return}
   crmDB.unshift({id:uid(),name,color:COLORS[crmDB.length%COLORS.length],open:true,rows:[]});
   saveCRM();renderCRM();
 }
 window.crmAddRow=function(gi,focusIt){
   crmDB[gi].rows.push(newCRMRow());saveCRM();crmRG(gi);updateCRMKPI();
+  logActivity('add','New row',crmDB[gi].name,'CRM');
   if(focusIt!==false)setTimeout(()=>{const rows=document.querySelectorAll('#ctb'+gi+' tr');const last=rows[rows.length-1];if(last){const i=last.querySelector('input');if(i)i.focus()}},40)
 }
-window.crmDelRow=function(gi,ri){crmDB[gi].rows.splice(ri,1);saveCRM();crmRG(gi);updateCRMKPI()}
+window.crmDelRow=function(gi,ri){const _n=crmDB[gi].rows[ri].item||'—';const _g=crmDB[gi].name;crmDB[gi].rows.splice(ri,1);saveCRM();crmRG(gi);updateCRMKPI();logActivity('del',_n,_g,'CRM');}
 window.crmToggle=function(gi){crmDB[gi].open=!crmDB[gi].open;saveCRM();crmRG(gi)}
 window.crmDelGroup=function(gi){if(crmDB[gi].rows.length&&!confirm('Delete "'+crmDB[gi].name+'"?'))return;crmDB.splice(gi,1);saveCRM();renderCRM()}
 window.crmEditPpl=function(gi,ri){const v=prompt('Initials:',crmDB[gi].rows[ri].ppl||'');if(v===null)return;crmDB[gi].rows[ri].ppl=v.trim().slice(0,2);saveCRM();crmRG(gi)}
@@ -403,11 +556,88 @@ window.crmPickGeo=function(ev,gi,ri,name){ev.preventDefault();const g=GEOS_CRM.f
 window.crmShowCtx=function(e,gi,ri){
   e.preventDefault();closeCtx();
   const m=document.createElement('div');m.className='ctxmenu';m.id='ctx';m.style.cssText='top:'+e.clientY+'px;left:'+e.clientX+'px';
-  m.innerHTML=`<div class="cxi" onmousedown="crmInsertAt(${gi},${ri});closeCtx()">Insert above</div><div class="cxi" onmousedown="crmInsertAt(${gi},${ri+1});closeCtx()">Insert below</div><div class="cxi" onmousedown="crmDupRow(${gi},${ri});closeCtx()">Duplicate</div><div class="cxsep"></div><div class="cxi danger" onmousedown="crmDelRow(${gi},${ri});closeCtx()">Delete row</div>`;
+  m.innerHTML=`<div class="cxi" onmousedown="crmInsertAt(${gi},${ri});closeCtx()">Insert above</div><div class="cxi" onmousedown="crmInsertAt(${gi},${ri+1});closeCtx()">Insert below</div><div class="cxi" onmousedown="crmDupRow(${gi},${ri});closeCtx()">Duplicate</div><div class="cxi" onmousedown="crmMoveToDate(${gi},${ri});closeCtx()">📅 Move to date...</div><div class="cxsep"></div><div class="cxi danger" onmousedown="crmDelRow(${gi},${ri});closeCtx()">Delete row</div>`;
   document.body.appendChild(m);setTimeout(()=>document.addEventListener('click',closeCtx,{once:true}),10)
 }
 window.crmInsertAt=function(gi,ri){crmDB[gi].rows.splice(ri,0,newCRMRow());saveCRM();crmRG(gi);updateCRMKPI()}
+
+window.crmEditGroupName = function(gi) {
+  const display = document.getElementById('gname-display-'+gi);
+  if(!display) return;
+  const current = crmDB[gi].name;
+  // Extract date part — try to parse dd.mm.yy or dd.mm.yy from name
+  const dateMatch = current.match(/(\d{2}\.\d{2}\.\d{2})$/);
+  let isoVal = dateInputVal(); // default today
+  if(dateMatch) {
+    const [d,m,y] = dateMatch[1].split('.');
+    isoVal = '20'+y+'-'+m+'-'+d;
+  }
+  // Replace span with input
+  const wrap = display.parentElement;
+  wrap.innerHTML = `<input class="gname-edit" id="gname-input-${gi}" type="date" value="${isoVal}"
+    onblur="crmSaveGroupName(${gi},this.value)"
+    onkeydown="if(event.key==='Enter')this.blur();if(event.key==='Escape'){crmRG(${gi});}"/>`;
+  setTimeout(()=>{
+    const inp = document.getElementById('gname-input-'+gi);
+    if(inp) inp.focus();
+  }, 30);
+};
+
+window.crmSaveGroupName = function(gi, isoVal) {
+  if(!isoVal) { crmRG(gi); return; }
+  const newLabel = formatDateLabel(isoVal);
+  // Keep label prefix if name had one (e.g. "Spain — 19.05.26")
+  const current = crmDB[gi].name;
+  const dashIdx = current.lastIndexOf(' — ');
+  const prefix = dashIdx > -1 ? current.slice(0, dashIdx) : '';
+  crmDB[gi].name = prefix ? prefix + ' — ' + newLabel : newLabel;
+  saveCRM();
+  crmRG(gi);
+};
 window.crmDupRow=function(gi,ri){crmDB[gi].rows.splice(ri+1,0,{...crmDB[gi].rows[ri],id:uid()});saveCRM();crmRG(gi);updateCRMKPI()}
+window.crmMoveToDate=function(gi,ri){
+  // Create modal
+  const overlay=document.createElement('div');overlay.className='move-modal-overlay';overlay.id='move-modal-overlay';
+  const tomorrow=new Date();tomorrow.setDate(tomorrow.getDate()+1);
+  const tomorrowStr=tomorrow.toISOString().slice(0,10);
+  const rowName=crmDB[gi].rows[ri].item||'this row';
+  overlay.innerHTML=`<div class="move-modal">
+    <h3>📅 Move to date</h3>
+    <p>Moving "<b>${xe(rowName)}</b>" from <b>${xe(crmDB[gi].name)}</b></p>
+    <label>Select target date</label>
+    <input type="date" id="move-date-input" value="${tomorrowStr}"/>
+    <div class="move-modal-note">If the group doesn't exist — it will be created automatically</div>
+    <div class="move-modal-btns">
+      <button class="btn-cancel" onclick="document.getElementById('move-modal-overlay').remove()">Cancel</button>
+      <button class="btn-move" onclick="crmConfirmMove(${gi},${ri})">Move ✓</button>
+    </div>
+  </div>`;
+  document.body.appendChild(overlay);
+  // Close on overlay click
+  overlay.addEventListener('click',function(e){if(e.target===overlay)overlay.remove();});
+  setTimeout(()=>document.getElementById('move-date-input')&&document.getElementById('move-date-input').focus(),50);
+};
+
+window.crmConfirmMove=function(gi,ri){
+  const dateInput=document.getElementById('move-date-input');
+  if(!dateInput||!dateInput.value){alert('Select a date');return;}
+  const targetLabel=formatDateLabel(dateInput.value);
+  // Find or create target group
+  let targetGi=crmDB.findIndex(g=>g.name===targetLabel||g.name.endsWith('— '+targetLabel));
+  if(targetGi===-1){
+    // Create new group with that date
+    crmDB.unshift({id:uid(),name:targetLabel,color:COLORS[crmDB.length%COLORS.length],open:true,rows:[]});
+    targetGi=0;
+    gi++; // original group shifted down
+  }
+  // Move the row
+  const row={...crmDB[gi].rows[ri]};
+  crmDB[gi].rows.splice(ri,1);
+  crmDB[targetGi].rows.push(row);
+  logActivity('move',row.item||'—',targetLabel,'CRM');saveCRM();renderCRM();
+  document.getElementById('move-modal-overlay').remove();
+};
+
 function exportCRMCSV(){
   const cols=['item','geos','caps','src','wh','fit','deal','status','req','pri','ppl','appr'];
   let csv='Group,Item,Geos,Caps,Source,Working Hours,Fit,Deal,Status,Requests,Priority,People,Approve\n';
@@ -432,13 +662,98 @@ onSnapshot(DEALS_DOC, (snap) => {
 }, ()=>setSyncErr());
 
 function saveDeals(){
-  if(saveTimeout) clearTimeout(saveTimeout);
+  if(saveTimeoutDeals) clearTimeout(saveTimeoutDeals);
   setSyncing();
-  saveTimeout = setTimeout(async()=>{
+  saveTimeoutDeals = setTimeout(async()=>{
     try{ ignoreNextDeals=true; await setDoc(DEALS_DOC,{groups:dealsDB}); setSynced(); }
     catch(e){ setSyncErr(); }
   },600);
 }
+function saveDealField(gi,ri,field,value){
+  if(saveTimeoutDeals) clearTimeout(saveTimeoutDeals);
+  setSyncing();
+  saveTimeoutDeals = setTimeout(async()=>{
+    try{
+      const fresh = JSON.parse(JSON.stringify(dealsDB));
+      ignoreNextDeals=true;
+      await setDoc(DEALS_DOC,{groups:fresh});
+      setSynced();
+    }catch(e){ setSyncErr(); }
+  },800);
+}
+
+
+// ══════════════════════════════════════════
+// ACTIVITY LOG
+// ══════════════════════════════════════════
+let activityLog = [];
+
+onSnapshot(ACTIVITY_DOC, (snap) => {
+  if(snap.exists()){ activityLog = snap.data().log||[]; }
+  else { activityLog = []; }
+  // Show badge if activity tab not active
+  const tab = document.getElementById('tab-activity');
+  if(tab && activeTab !== 'activity') tab.style.color = 'var(--acc)';
+  if(activeTab === 'activity') renderActivity();
+}, ()=>{});
+
+function logActivity(type, itemName, groupName, tabName){
+  const userName = sessionStorage.getItem('crm_user_name') || 'Unknown';
+  const entry = {
+    id: uid(),
+    type,
+    item: itemName || '—',
+    group: groupName || '—',
+    tab: tabName || 'CRM',
+    user: userName,
+    time: Date.now()
+  };
+  activityLog.unshift(entry);
+  if(activityLog.length > 100) activityLog = activityLog.slice(0, 100);
+  setDoc(ACTIVITY_DOC, {log: activityLog}).catch(()=>{});
+  // Badge on tab
+  const tab = document.getElementById('tab-activity');
+  if(tab && activeTab !== 'activity') tab.style.color = 'var(--acc)';
+  // Toast
+  const toastMsgs = {add:'✅ Row added', del:'🗑️ Row deleted', move:'📅 Row moved'};
+  showToast((toastMsgs[type]||'Done') + (itemName && itemName!=='New row' && itemName!=='—' ? ': '+itemName : ''), type==='del'?'red':type==='move'?'blue':'green');
+}
+
+function renderActivity(){
+  const root = document.getElementById('root-activity');
+  if(!root) return;
+  // Clear badge
+  const tab = document.getElementById('tab-activity');
+  if(tab) tab.style.color = '';
+  if(!activityLog.length){
+    root.innerHTML = '<div class="activity-wrap"><div class="activity-empty">No activity yet</div></div>';
+    return;
+  }
+  const icons = {add:'🟢', del:'🔴', move:'🔵'};
+  const labels = {add:'Added', del:'Deleted', move:'Moved'};
+  let h = '<div class="activity-wrap">';
+  activityLog.forEach(e => {
+    const d = new Date(e.time);
+    const timeStr = d.toLocaleDateString('en-GB',{day:'2-digit',month:'2-digit',year:'2-digit'}) + ' ' + d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+    h += `<div class="activity-item">
+      <div class="activity-icon ${e.type}">${icons[e.type]||'⚪'}</div>
+      <div class="activity-body">
+        <div class="activity-action"><b>${xe(e.user||'Unknown')}</b> ${labels[e.type]||e.type} <span class="item-name">"${xe(e.item)}"</span> — <span class="group-name">${xe(e.group)}</span><span class="activity-tab">${xe(e.tab)}</span></div>
+        <div class="activity-time">${timeStr}</div>
+      </div>
+    </div>`;
+  });
+  h += '<button class="activity-clear" onclick="clearActivity()">Clear log</button>';
+  h += '</div>';
+  root.innerHTML = h;
+}
+
+window.clearActivity = function(){
+  if(!confirm('Clear all activity log?')) return;
+  activityLog = [];
+  setDoc(ACTIVITY_DOC, {log:[]}).catch(()=>{});
+  renderActivity();
+};
 
 function newDealsRow(){return{id:uid(),item:'',country:'',price:'',crg:'',source:'',language:'',taken:'',rank:'',funnels:''}}
 
@@ -453,15 +768,15 @@ function updateDealsKPI(){
 function renderDeals(){
   const root=document.getElementById('root-deals');root.innerHTML='';
   const bar=document.createElement('div');bar.className='new-group-bar';
-  bar.innerHTML=`<label>+ קבוצה חדשה:</label>
+  bar.innerHTML=`<label>+ New group:</label>
     <div class="gbarcell">
-      <input type="text" id="deals-new-label" placeholder="מדינה / שם קבוצה" autocomplete="off"
+      <input type="text" id="deals-new-label" placeholder="Country / Group name" autocomplete="off"
         oninput="dealsBarGeoInput(this.value)"
         onfocus="dealsBarGeoInput(this.value)"
         onblur="setTimeout(()=>{const d=document.getElementById('deals-bar-dd');if(d)d.style.display='none'},160)"/>
       <div class="gbardd" id="deals-bar-dd"></div>
     </div>
-    <button class="hbtn acc" onclick="dealsAddGroupFromBar()">צור קבוצה</button>`;
+    <button class="hbtn acc" onclick="dealsAddGroupFromBar()">Create group</button>`;
   root.appendChild(bar);
   dealsDB.forEach((_,gi)=>{const d=document.createElement('div');d.className='group';d.id='dg'+gi;root.appendChild(d);dealsRG(gi)});
   updateDealsKPI();
@@ -469,7 +784,7 @@ function renderDeals(){
 
 function dealsRG(gi){
   const g=dealsDB[gi];const el=document.getElementById('dg'+gi);if(!el)return;
-  el.className='group'+(g.open?'':' closed');
+  el.className='group'+(g.open||crmSearchQuery?'':' closed');
   const geo=GEOS_CRM.find(x=>x.n.toLowerCase()===g.name.toLowerCase());
   const flag=geo?geo.f+' ':'';
   const totalPrice=g.rows.reduce((a,r)=>a+(parseInt(r.price)||0),0);
@@ -486,9 +801,9 @@ function dealsRG(gi){
   if(g.open){
     h+=`<div class="twrap"><table>
       <colgroup><col class="da"><col class="db"><col class="dc"><col class="dd"><col class="de"><col class="df"><col class="dg"><col class="dh"><col class="di"><col class="dj"></colgroup>
-      <thead><tr><th>Item</th><th>Country</th><th>Price</th><th>CRG</th><th>Source</th><th>Language</th><th>Taken</th><th>Rank</th><th>Funnels</th><th></th></tr></thead>
+      <thead><tr><th onclick="dealsSort(${gi},'item')" style="cursor:pointer">Item ${dealsSortIndicator(gi,'item')}</th><th onclick="dealsSort(${gi},'country')" style="cursor:pointer">Country ${dealsSortIndicator(gi,'country')}</th><th onclick="dealsSort(${gi},'price')" style="cursor:pointer">Price ${dealsSortIndicator(gi,'price')}</th><th onclick="dealsSort(${gi},'crg')" style="cursor:pointer">CRG ${dealsSortIndicator(gi,'crg')}</th><th onclick="dealsSort(${gi},'source')" style="cursor:pointer">Source ${dealsSortIndicator(gi,'source')}</th><th onclick="dealsSort(${gi},'language')" style="cursor:pointer">Language ${dealsSortIndicator(gi,'language')}</th><th onclick="dealsSort(${gi},'taken')" style="cursor:pointer">Taken ${dealsSortIndicator(gi,'taken')}</th><th onclick="dealsSort(${gi},'rank')" style="cursor:pointer">Rank ${dealsSortIndicator(gi,'rank')}</th><th onclick="dealsSort(${gi},'funnels')" style="cursor:pointer">Funnels ${dealsSortIndicator(gi,'funnels')}</th><th></th></tr></thead>
       <tbody id="dtb${gi}">`;
-    g.rows.forEach((r,ri)=>{h+=dealsRowH(gi,ri,r)});
+    g.rows.forEach((r,ri)=>{if(!dealsMatchesSearch(g,r))return;h+=dealsRowH(gi,ri,r)});
     h+=`</tbody><tfoot><tr class="footrow"><td>Total</td><td></td><td class="footval">${totalPrice||''}</td><td colspan="7"></td></tr></tfoot></table></div>
     <div class="addrow" onclick="dealsAddRow(${gi})"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>Add item</div>`;
   }
@@ -514,16 +829,17 @@ function dealsRowH(gi,ri,r){
 window.dealsUpd=function(gi,ri,f,v){dealsDB[gi].rows[ri][f]=v;saveDeals();if(f==='price')updateDealsKPI()}
 window.dealsAddRow=function(gi,focusIt){
   dealsDB[gi].rows.push(newDealsRow());saveDeals();dealsRG(gi);updateDealsKPI();
+  logActivity('add','New row',dealsDB[gi].name,'Deals');
   if(focusIt!==false)setTimeout(()=>{const rows=document.querySelectorAll('#dtb'+gi+' tr');const last=rows[rows.length-1];if(last){const i=last.querySelector('input');if(i)i.focus()}},40)
 }
-window.dealsDelRow=function(gi,ri){dealsDB[gi].rows.splice(ri,1);saveDeals();dealsRG(gi);updateDealsKPI()}
+window.dealsDelRow=function(gi,ri){const _n=dealsDB[gi].rows[ri].item||'—';const _g=dealsDB[gi].name;dealsDB[gi].rows.splice(ri,1);saveDeals();dealsRG(gi);updateDealsKPI();logActivity('del',_n,_g,'Deals');}
 window.dealsToggle=function(gi){dealsDB[gi].open=!dealsDB[gi].open;saveDeals();dealsRG(gi)}
 window.dealsDelGroup=function(gi){if(dealsDB[gi].rows.length&&!confirm('Delete "'+dealsDB[gi].name+'"?'))return;dealsDB.splice(gi,1);saveDeals();renderDeals()}
 window.dealsAddGroupFromBar=function(){
   const labelEl=document.getElementById('deals-new-label');
   const name=labelEl&&labelEl.value.trim();
   if(!name)return;
-  if(dealsDB.find(g=>g.name===name)){alert('קבוצה עם שם זה כבר קיימת');return}
+  if(dealsDB.find(g=>g.name===name)){alert('A group with this name already exists');return}
   dealsDB.unshift({id:uid(),name,color:COLORS[dealsDB.length%COLORS.length],open:true,rows:[]});
   saveDeals();renderDeals();
   if(labelEl)labelEl.value='';
@@ -578,6 +894,86 @@ window.dealsBarPickGeo=function(name,flag){
 }
 
 window.closeCtx=function(){const m=document.getElementById('ctx');if(m)m.remove()}
+
+
+
+// ══ TOAST ══
+function showToast(msg, type){
+  const t = document.getElementById('toast');
+  if(!t) return;
+  t.textContent = msg;
+  t.className = 'toast ' + (type||'green');
+  t.classList.add('show');
+  clearTimeout(t._to);
+  t._to = setTimeout(()=>t.classList.remove('show'), 2800);
+}
+
+// ══ SORT STATE ══
+const crmSortState = {};
+const dealsSortState = {};
+
+window.crmSort = function(gi, field) {
+  if (!crmSortState[gi]) crmSortState[gi] = {field: null, dir: 1};
+  const s = crmSortState[gi];
+  if (s.field === field) { s.dir *= -1; } else { s.field = field; s.dir = 1; }
+  crmDB[gi].rows.sort((a, b) => {
+    const av = (a[field]||'').toString().toLowerCase();
+    const bv = (b[field]||'').toString().toLowerCase();
+    const an = parseFloat(av), bn = parseFloat(bv);
+    if (!isNaN(an) && !isNaN(bn)) return (an - bn) * s.dir;
+    return av < bv ? -s.dir : av > bv ? s.dir : 0;
+  });
+  saveCRM(); crmRG(gi);
+};
+window.crmSortIndicator = function(gi, field) {
+  const s = crmSortState[gi];
+  if (!s || s.field !== field) return '<span style="opacity:.3">↕</span>';
+  return s.dir === 1 ? '↑' : '↓';
+};
+window.dealsSort = function(gi, field) {
+  if (!dealsSortState[gi]) dealsSortState[gi] = {field: null, dir: 1};
+  const s = dealsSortState[gi];
+  if (s.field === field) { s.dir *= -1; } else { s.field = field; s.dir = 1; }
+  dealsDB[gi].rows.sort((a, b) => {
+    const av = (a[field]||'').toString().toLowerCase();
+    const bv = (b[field]||'').toString().toLowerCase();
+    const an = parseFloat(av), bn = parseFloat(bv);
+    if (!isNaN(an) && !isNaN(bn)) return (an - bn) * s.dir;
+    return av < bv ? -s.dir : av > bv ? s.dir : 0;
+  });
+  saveDeals(); dealsRG(gi);
+};
+window.dealsSortIndicator = function(gi, field) {
+  const s = dealsSortState[gi];
+  if (!s || s.field !== field) return '<span style="opacity:.3">↕</span>';
+  return s.dir === 1 ? '↑' : '↓';
+};
+
+// ══ SEARCH ══
+let crmSearchQuery = '';
+let dealsSearchQuery = '';
+
+window.crmSearch = function(q) {
+  crmSearchQuery = q.toLowerCase().trim();
+  renderCRM();
+};
+
+window.dealsSearch = function(q) {
+  dealsSearchQuery = q.toLowerCase().trim();
+  renderDeals();
+};
+
+function crmMatchesSearch(g, r) {
+  if (!crmSearchQuery) return true;
+  const fields = [g.name, r.item, r.geos, r.caps, r.src, r.wh, r.fit, r.deal, r.status, r.req, r.pri, r.ppl, r.appr];
+  return fields.some(f => f && f.toString().toLowerCase().includes(crmSearchQuery));
+}
+
+function dealsMatchesSearch(g, r) {
+  if (!dealsSearchQuery) return true;
+  const fields = [g.name, r.item, r.country, r.price, r.crg, r.source, r.language, r.taken, r.rank, r.funnels];
+  return fields.some(f => f && f.toString().toLowerCase().includes(dealsSearchQuery));
+}
 
 renderCRM();
 </script>
