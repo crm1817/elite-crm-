@@ -317,6 +317,8 @@ const syncDot = document.getElementById('syncDot');
 let saveTimeout = null;
 let saveTimeoutDeals = null;
 let activeTab = 'crm';
+let crmStructuralSaving = false;
+let dealsStructuralSaving = false;
 
 // ── Tab switching ──
 window.switchTab = function(tab) {
@@ -424,6 +426,7 @@ function crmMergeIncoming(incoming) {
 
 onSnapshot(CRM_DOC, (snap) => {
   if (!snap.exists()) { setSynced(); return; }
+  if (crmStructuralSaving) { setSynced(); return; }
   const incoming = snap.data().groups || [];
   crmMergeIncoming(incoming);
   renderCRM();
@@ -435,10 +438,11 @@ onSnapshot(CRM_DOC, (snap) => {
 function saveCRM() {
   if (saveTimeout) clearTimeout(saveTimeout);
   setSyncing();
+  crmStructuralSaving = true;
   const fresh = JSON.parse(JSON.stringify(crmDB));
   setDoc(CRM_DOC, { groups: fresh })
-    .then(() => setSynced())
-    .catch(() => setSyncErr());
+    .then(() => { crmStructuralSaving = false; setSynced(); })
+    .catch(() => { crmStructuralSaving = false; setSyncErr(); });
 }
 
 // ── Field-level save (for typing in cells) — ONLY updates that one field path ──
@@ -799,6 +803,7 @@ function dealsMergeIncoming(incoming) {
 
 onSnapshot(DEALS_DOC, (snap) => {
   if (!snap.exists()) { dealsDB = []; renderDeals(); setSynced(); return; }
+  if (dealsStructuralSaving) { setSynced(); return; }
   const incoming = snap.data().groups || [];
   dealsMergeIncoming(incoming);
   renderDeals();
@@ -808,10 +813,11 @@ onSnapshot(DEALS_DOC, (snap) => {
 function saveDeals() {
   if (saveTimeoutDeals) clearTimeout(saveTimeoutDeals);
   setSyncing();
+  dealsStructuralSaving = true;
   const fresh = JSON.parse(JSON.stringify(dealsDB));
   setDoc(DEALS_DOC, { groups: fresh })
-    .then(() => setSynced())
-    .catch(() => setSyncErr());
+    .then(() => { dealsStructuralSaving = false; setSynced(); })
+    .catch(() => { dealsStructuralSaving = false; setSyncErr(); });
 }
 
 function saveDealField(gi, ri, field, value) {
