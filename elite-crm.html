@@ -318,6 +318,8 @@ let saveTimeout = null;
 let saveTimeoutDeals = null;
 let ignoreNextCRM = false;
 let ignoreNextDeals = false;
+let crmSaveTime = 0;
+let dealsSaveTime = 0;
 let activeTab = 'crm';
 
 // ── Tab switching ──
@@ -346,6 +348,7 @@ let crmDB = [];
 
 onSnapshot(CRM_DOC, (snap) => {
   if(snap.exists()){
+    if(Date.now() - crmSaveTime < 2000){return;}
     if(ignoreNextCRM){ignoreNextCRM=false;return;}
     const incoming = snap.data().groups||[];
     // Merge: keep focused cell value, update everything else
@@ -377,7 +380,7 @@ function saveCRM(){
   if(saveTimeout) clearTimeout(saveTimeout);
   setSyncing();
   saveTimeout = setTimeout(async()=>{
-    try{ ignoreNextCRM=true; await setDoc(CRM_DOC,{groups:crmDB}); setSynced(); }
+    try{ ignoreNextCRM=true; crmSaveTime=Date.now(); await setDoc(CRM_DOC,{groups:crmDB}); setSynced(); }
     catch(e){ setSyncErr(); }
   },600);
 }
@@ -652,6 +655,7 @@ let dealsDB = [];
 
 onSnapshot(DEALS_DOC, (snap) => {
   if(snap.exists()){
+    if(Date.now() - dealsSaveTime < 2000){return;}
     if(ignoreNextDeals){ignoreNextDeals=false;return;}
     dealsDB = snap.data().groups||[];
   } else {
@@ -665,7 +669,7 @@ function saveDeals(){
   if(saveTimeoutDeals) clearTimeout(saveTimeoutDeals);
   setSyncing();
   saveTimeoutDeals = setTimeout(async()=>{
-    try{ ignoreNextDeals=true; await setDoc(DEALS_DOC,{groups:dealsDB}); setSynced(); }
+    try{ ignoreNextDeals=true; dealsSaveTime=Date.now(); await setDoc(DEALS_DOC,{groups:dealsDB}); setSynced(); }
     catch(e){ setSyncErr(); }
   },600);
 }
