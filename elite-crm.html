@@ -419,16 +419,14 @@ onSnapshot(CRM_DOC, (snap) => {
 }, () => setSyncErr());
 
 // ── Full save (for structural changes: add/delete row/group, move, sort) ──
+// NO debounce — structural changes (add/delete/move row) must persist immediately
 function saveCRM() {
   if (saveTimeout) clearTimeout(saveTimeout);
   setSyncing();
-  saveTimeout = setTimeout(async () => {
-    try {
-      const fresh = JSON.parse(JSON.stringify(crmDB));
-      await setDoc(CRM_DOC, { groups: fresh });
-      setSynced();
-    } catch(e) { setSyncErr(); }
-  }, 400);
+  const fresh = JSON.parse(JSON.stringify(crmDB));
+  setDoc(CRM_DOC, { groups: fresh })
+    .then(() => setSynced())
+    .catch(() => setSyncErr());
 }
 
 // ── Field-level save (for typing in cells) — ONLY updates that one field path ──
@@ -797,13 +795,10 @@ onSnapshot(DEALS_DOC, (snap) => {
 function saveDeals() {
   if (saveTimeoutDeals) clearTimeout(saveTimeoutDeals);
   setSyncing();
-  saveTimeoutDeals = setTimeout(async () => {
-    try {
-      const fresh = JSON.parse(JSON.stringify(dealsDB));
-      await setDoc(DEALS_DOC, { groups: fresh });
-      setSynced();
-    } catch(e) { setSyncErr(); }
-  }, 400);
+  const fresh = JSON.parse(JSON.stringify(dealsDB));
+  setDoc(DEALS_DOC, { groups: fresh })
+    .then(() => setSynced())
+    .catch(() => setSyncErr());
 }
 
 function saveDealField(gi, ri, field, value) {
