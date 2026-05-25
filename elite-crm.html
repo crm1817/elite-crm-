@@ -353,7 +353,10 @@ const crmFocusedCells = new Set(); // Set of "rowId:field"
 function normalizeGroups(raw) {
   const arr = Array.isArray(raw) ? raw : Object.values(raw || {});
   return arr.map(g => ({
-    ...g,
+    id: g.id || uid(),
+    name: g.name || '',
+    color: g.color || '#6C63FF',
+    open: g.open !== undefined ? g.open : true,
     rows: Array.isArray(g.rows) ? g.rows : Object.values(g.rows || {})
   }));
 }
@@ -511,7 +514,7 @@ function newCRMRow(){return{id:uid(),item:'',geos:'',caps:'',src:'',wh:'',fit:''
 function todayStr(){const d=new Date();return String(d.getDate()).padStart(2,'0')+'.'+String(d.getMonth()+1).padStart(2,'0')+'.'+String(d.getFullYear()).slice(2)}
 function dateInputVal(){return new Date().toISOString().slice(0,10)}
 function formatDateLabel(iso){if(!iso)return'';if(iso.match(/^\d{4}-\d{2}-\d{2}$/)){const[y,m,d]=iso.split('-');return d+'.'+m+'.'+y.slice(2)}return iso}
-function isToday(label){return label===todayStr()||label.endsWith('— '+todayStr())}
+function isToday(label){if(!label||typeof label!=='string')return false;return label===todayStr()||label.endsWith('— '+todayStr())}
 function xe(v){return String(v||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;')}
 function xa(v){return String(v||'').replace(/"/g,'&quot;')}
 function geoDisp(raw,list){if(!raw)return'';const g=list.find(x=>x.n.toLowerCase()===raw.toLowerCase());return g?g.f+' '+raw:raw}
