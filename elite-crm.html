@@ -350,9 +350,16 @@ const crmFieldTimers = new Map();
 const crmFocusedCells = new Set(); // Set of "rowId:field"
 
 // ── Smart merge by row ID (not index) ──
+function normalizeGroups(raw) {
+  const arr = Array.isArray(raw) ? raw : Object.values(raw || {});
+  return arr.map(g => ({
+    ...g,
+    rows: Array.isArray(g.rows) ? g.rows : Object.values(g.rows || {})
+  }));
+}
+
 function crmMergeIncoming(incoming) {
-  // Normalize rows in each group to Array (Firestore may return Object)
-  incoming = incoming.map(g => ({...g, rows: Array.isArray(g.rows) ? g.rows : Object.values(g.rows || {})}));
+  incoming = normalizeGroups(incoming);
   // Build a lookup of current rows by ID
   const localRowById = new Map();
   crmDB.forEach(g => g.rows.forEach(r => localRowById.set(r.id, r)));
@@ -414,8 +421,7 @@ function crmMergeIncoming(incoming) {
 
 onSnapshot(CRM_DOC, (snap) => {
   if (!snap.exists()) { setSynced(); return; }
-  const raw = snap.data().groups || [];
-  const incoming = Array.isArray(raw) ? raw : Object.values(raw);
+  const incoming = snap.data().groups || [];
   crmMergeIncoming(incoming);
   renderCRM();
   setSynced();
@@ -739,8 +745,7 @@ const dealsFieldTimers = new Map();
 const dealsFocusedCells = new Set();
 
 function dealsMergeIncoming(incoming) {
-  // Normalize rows in each group to Array
-  incoming = incoming.map(g => ({...g, rows: Array.isArray(g.rows) ? g.rows : Object.values(g.rows || {})}));
+  incoming = normalizeGroups(incoming);
   const localRowById = new Map();
   dealsDB.forEach(g => g.rows.forEach(r => localRowById.set(r.id, r)));
 
@@ -791,8 +796,7 @@ function dealsMergeIncoming(incoming) {
 
 onSnapshot(DEALS_DOC, (snap) => {
   if (!snap.exists()) { dealsDB = []; renderDeals(); setSynced(); return; }
-  const raw = snap.data().groups || [];
-  const incoming = Array.isArray(raw) ? raw : Object.values(raw);
+  const incoming = snap.data().groups || [];
   dealsMergeIncoming(incoming);
   renderDeals();
   setSynced();
